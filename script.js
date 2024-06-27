@@ -11,7 +11,7 @@ function Book(title, author, pages, readStatus) {
 
     this.info = () => {
         let statusText = "";
-        switch (readStatus) {
+        switch (+this.readStatus) {
             case 1:
                 statusText = "Reading";
                 break;
@@ -21,7 +21,7 @@ function Book(title, author, pages, readStatus) {
             default:
                 statusText = "Not Yet Reading";
         }
-        return `${title} by ${author}, ${pages} pages, ${statusText}`;
+        return `${this.title} by ${this.author}, ${this.pages} pages, ${statusText}`;
     };
 }
 
@@ -29,9 +29,6 @@ function addBookToLibrary (book) {
     myLibrary.push(book);
 }
 
-// attach uid to each book, remove a book with array.filter based
-// based on matching id
-// 
 
 function displayLibrary () {
     gridDiv.replaceChildren();
@@ -40,19 +37,56 @@ function displayLibrary () {
         newCard.className = "card";
         newCard.textContent = myLibrary[i].info();
 
+        console.log(newCard.textContent);
+        console.log(myLibrary[i]);
+
         let removeBtn = document.createElement("button");
         removeBtn.textContent = "REMOVE"
         removeBtn.className = "remove";
+        removeBtn.id = +i;
+
+
+        let statusBtn = document.createElement("button");
+        statusBtn.textContent = "READ";
+        statusBtn.className = "status-button";
+        statusBtn.id = +i;
+
         newCard.appendChild(removeBtn);
+        newCard.appendChild(statusBtn);
         gridDiv.appendChild(newCard);
+
+        removeBtn.addEventListener('click', (e) => {
+            console.log(e.target.id);
+            let index = +e.target.id;
+
+            console.log(gridDiv.children[index]);
+
+            gridDiv.removeChild(gridDiv.children[index]);
+            console.log(myLibrary.splice(index, 1));
+            
+            displayLibrary();
+        });
+
+        statusBtn.addEventListener('click', (e) => {
+            let index = +e.target.id;
+
+            console.log("Before: " + myLibrary[index].readStatus);
+
+            myLibrary[index].readStatus = 1;
+
+            console.log("After: " + myLibrary[index].readStatus);
+
+            // gridDiv.children[index].textContent = myLibrary[index].info();
+            displayLibrary();
+        })
     }
 }
 
-let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, 0);
-let randomBook = new Book("Random Book", "Unknown", 999, 1);
+// let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, 0);
+// let randomBook = new Book("Random Book", "Unknown", 999, 1);
 
-addBookToLibrary(theHobbit);
-addBookToLibrary(randomBook);
+// addBookToLibrary(theHobbit);
+// addBookToLibrary(randomBook);
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
