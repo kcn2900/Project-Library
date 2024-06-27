@@ -1,0 +1,27 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.display {
+    width: 50vw;
+    height: 50vh;
+    overflow: scroll;
+    border: 1px black solid;
+}
+
+.grid {
+    border: 1px red solid;
+    display: grid;
+    grid-template: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    overflow: scroll;
+}
+
+.card {
+    border: 1px black solid;
+}
+
+form {
+    display: none;
+}
