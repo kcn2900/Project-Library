@@ -30,6 +30,14 @@ function Book(title, author, pages, readStatus) {
             }
         }
 
+        if (this.author.length === 0) {
+            author_result = "[N/A]";
+        }
+
+        if (this.title.length === 0) {
+            title_result = "[N/A]";
+        }
+
         switch (+this.readStatus) {
             case 1:
                 statusText = "Reading";
@@ -112,14 +120,19 @@ function displayLibrary () {
             // make the card's position relative
 
             hoverCard = document.createElement("div");
-            hoverCard.textContent = myLibrary[i].info(true);
+            hoverCardText = document.createElement("p");
+            hoverCardText.textContent = myLibrary[i].info(true);
+            
+            hoverCardText.className ="hover-card-text";
             hoverCard.className = "hover-card";
 
+            hoverCard.appendChild(hoverCardText);
             gridDiv.appendChild(hoverCard);
 
         });
 
         newCard.addEventListener('mouseout', () => {
+            hoverCard.removeChild(hoverCardText);
             gridDiv.removeChild(hoverCard);
         });
     }

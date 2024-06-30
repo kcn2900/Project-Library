@@ -35,6 +35,7 @@ body {
 /* ---------------------------  card css --------------------------------- */
 
 .card {
+    text-align: center;
     position: relative;
     padding: 5px;
     background-color: white;
@@ -62,15 +63,22 @@ body {
 }
 
 .hover-card {
+    text-align: center;
     position: absolute;
     padding: 10px 0px;
-    padding-left: 1vw;
-    top: 100px;
     left: 20px;
     width: 20vw;
-    height: 20vh;
+    height: max(200px, auto);
     background-color: lightgray;
     color: black;
+    
+    display: inline-flex; /* to ensure automatic height growth */
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px 1px darkgray;
+}
+
+.hover-card-text {
+    overflow-wrap: break-word;
 }
 
 /* ---------------------------  form css --------------------------------- */
