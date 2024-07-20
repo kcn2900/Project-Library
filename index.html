@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Library Homepage</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <div class="display">
-            <div class="grid"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Homepage</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="display">
+      <div class="grid"></div>
+    </div>
+    <div class="popup">
+      <form action="" method="" id="form" novalidate>
+        <div class="input-section">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" minlength="1"
+          placeholder="Book Title" />
+          <span></span>
         </div>
-        <div class="popup">
-            <form action="" method="" id="form">
-                <div>
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title"> 
-                </div>
 
-                <div>
-                    <label for="author">Author:</label>
-                    <input type="text" name="author" id="author">
-                </div>
+        <div class="input-section">
+          <label for="author">Author:</label>
+          <input type="text" name="author" id="author" minlength="1" 
+          placeholder="Somebody"/>
+          <span></span>
+        </div>
 
-                <div>
-                    <label for="page-number">Num. of Pages:</label>
-                    <input type="number" name="page-number" id="page-number">
-                </div>
+        <div class="input-section">
+          <label for="page-number">Num. of Pages: </label>
+          <input
+            type="number"
+            name="page-number"
+            id="page-number"
+            max="10000"
+            placeholder="100"
+          />
+          <span></span>
+        </div>
 
-                <div>
-                    <label for="status">Reading Status:</label>
-                    <select name="status" id="status">
-                        <option value="0" selected>Not Yet Reading</option>
-                        <option value="1">Reading</option>
-                        <option value="2">Finished Reading</option>
-                    </select>
-                </div>
-
-                <div>
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
+        <div class="input-section">
+          <label for="status">Reading Status:</label>
+          <select name="status" id="status">
+            <option value="0" selected>Not Yet Reading</option>
+            <option value="1">Reading</option>
+            <option value="2">Finished Reading</option>
+          </select>
         </div>
 
         <div>
-            <button class="new" type="button">NEW BOOK</button>
+          <button type="submit">Submit</button>
         </div>
+      </form>
+    </div>
 
-    </body>
+    <div>
+      <button class="new" type="button">NEW BOOK</button>
+    </div>
+  </body>
 </html>

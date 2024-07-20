@@ -90,6 +90,8 @@ form {
     padding: 5px;
     flex-direction: column;
     flex-wrap: wrap;
+    align-items: center;
+    gap: 2vh;
 }
 
 .new {
@@ -97,4 +99,24 @@ form {
     border-radius: 8px;
     box-shadow: none;
     color: white;
+}
+
+.input-error {
+    border: 1px red solid;
+    background-color: lightpink;
+}
+
+.input-section {
+    position: relative;
+}
+
+span {
+    position: absolute;
+    color: white;
+    left: 0;
+    right: 0;
+    top: 3vh;
+    background-color: darkred;
+    height: auto;
+    text-align: center;
 }
